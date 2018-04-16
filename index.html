@@ -2,22 +2,39 @@
 <html lang='en'>
   <head>
     <title>Amaludum's Translation Engine</title>
-      <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script src='pigLatin.js'></script>
+    <script>
+      function translateText() {
+        var en = document.querySelector("#toBeTranslated").value;
+        var translateTo = document.querySelector("#languageChoice").value;
+        var translatedText = "";
+        
+        if (translateTo == "pigLatin") {
+          translatedText = toPigLatin(en);
+        }
+        else {
+          translatedText = "Translation for this language has not yet been implemented."
+        }
+        document.querySelector("#translation").innerHTML = translatedText;
+        return;
+      }
+    </script>
   </head>
-  <body>
+  <body onLoad='translateText()'>
     <h1>Welcome to Amaludum's Translation Engine!</h1>
     <nav></nav>
     <form action="">
       Text you wish to translate:<br>
-      <input type="text" name="toBeTranslated"><br>
+      <input type="text" id="toBeTranslated"><br>
       Please select which language translation you wish to see:<br>
-      <select>
-        <option value="PigLatin">Pig Latin</option>
-        <option value="Pirate">Pirate</option>
+      <select id='languageChoice' onInput='translateText()'>
+        <option value="pigLatin" selected>Pig Latin</option>
+        <option value="pirate">Pirate</option>
         <option value="sbrew">McKenzie Speak</option>
       </select>
     </form>
     <h2>Translation</h2>
-    <script></script>
+    <span id='translation'></span>
 </body>
 </html>
