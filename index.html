@@ -4,6 +4,7 @@
     <title>Amaludum's Translation Engine</title>
     <link rel="stylesheet" type="text/css" href="main.css">
     <script src='pigLatin.js'></script>
+    <script src='https://gwistix.github.io/code/lib.js'></script>
     <script>
       function translateText() {
         var en = document.querySelector("#toBeTranslated").value;
@@ -26,7 +27,7 @@
     <nav></nav>
     <form action="">
       Text you wish to translate:<br>
-      <input type="text" id="toBeTranslated"><br>
+      <input type="text" id="toBeTranslated" value='This is a test of the Amaludum Translation Engine.'><br>
       Please select which language translation you wish to see:<br>
       <select id='languageChoice' onInput='translateText()'>
         <option value="pigLatin" selected>Pig Latin</option>
