@@ -4,15 +4,19 @@
     <title>Amaludum's Translation Engine</title>
     <link rel="stylesheet" type="text/css" href="main.css">
     <script src='pigLatin.js'></script>
+    <script src='sBrew.js'></script>
     <script src='https://gwistix.github.io/code/lib.js'></script>
     <script>
       function translateText() {
         var en = document.querySelector("#toBeTranslated").value;
         var translateTo = document.querySelector("#languageChoice").value;
         var translatedText = "";
-        
+
         if (translateTo == "pigLatin") {
           translatedText = toPigLatin(en);
+        }
+        if else (translateTo == "sbrew") {
+          translatedText = toSBrew(en);
         }
         else {
           translatedText = "Translation for this language has not yet been implemented."
