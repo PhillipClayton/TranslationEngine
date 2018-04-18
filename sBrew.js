@@ -10,7 +10,7 @@ function toSBrew (toTranslate) {
   of each sentence, based on probability.
   */
   var numberOfSentences = (toTranslate.match(/\./,g) || []).length;
-  for (var i = 1; i <= numberofSentences) {
+  for (var i = 1; i <= numberofSentences; i++) {
     toTranslate.replace(".", ", eh.");
   }
   finalTranslation = toTranslate;
