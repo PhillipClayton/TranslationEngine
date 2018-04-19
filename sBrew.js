@@ -1,7 +1,7 @@
 function toSBrew (toTranslate) {
   var finalTranslation = "";
-  var chanceValue = Math.random();
-  var chanceOfEh = .25;
+  var chanceValue = 0;
+  var chanceOfEh = .5;
   var chanceOfYouHoser = .20;
   var changeOfYouKnob = .10;
 
@@ -15,19 +15,25 @@ function toSBrew (toTranslate) {
   */
 
   toTranslate = toTranslate.replace(/\./g, function(str) {
+    chanceValue = Math.random();
     if (chanceValue <= chanceOfEh) {
       return ", eh" + str;
     }
+    else {
+      return str;
+    }
   });
-
+// 50/50 whether it will test for Hoser or Knob suffix
   toTranslate = toTranslate.replace(/\!/g, function(str) {
-    if (chanceValue <= chanceOfYouHoser) {
-      if (chanceValue <= chanceOfYouKnob) {
-        return ", you knob" + str;
-      }
-      else {
-        return ", you hoser" + str;
-      }
+    chanceValue = Math.random();
+    if (chanceValue >= .5 && chanceValue <= chanceOfYouHoser) {
+      return ", you hoser" + str;
+    }
+    else if (chanceValue <= .5 && chanceValue <= chanceOfYouKnob) {
+      return ", you knob" + str;
+    }
+    else {
+      return str;
     }
   });
 
