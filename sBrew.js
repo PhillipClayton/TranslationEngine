@@ -9,9 +9,9 @@ function toSBrew (toTranslate) {
   randomly add expressions to the beginnging/end
   of each sentence, based on probability.
   */
-  
+
   toTranslate = toTranslate.replace(/\./g, function(str) {
     return ", eh" + str;
   });
-
+  return toTranslate;
 }
